@@ -1,20 +1,19 @@
-from stats import count_words, count_characters
+from stats import count_words, count_characters, sorted_character_list
 
-def get_book_text(filepath):
-    """
-    Reads the content of a book from a file and returns it as a string.
-    
-    :param filepath: Path to the book file.
-    :return: Content of the book as a string.
-    """
-    with open(filepath) as file:
-        return file.read()
-    
 def main():
-    # bookpath is a relative path to book and program prints the book on terminal
     bookpath = "books/frankenstein.txt"
-    # print(get_book_text(bookpath))
-    # print(f"{count_words(bookpath)} words found in the document")
-    print(count_characters(bookpath))
+    sorted_list = sorted_character_list(count_characters(bookpath))
+
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {bookpath}")
+    print("----------- Word Count ----------")
+    print(f"Found {count_words(bookpath)} total words")
+    print("--------- Character Count -------")
+
+    for character in sorted_list:
+        if character["char"].isalpha():
+            print(f"{character["char"]}: {character["num"]}")
+
+    print("============= END ===============")
 
 main()

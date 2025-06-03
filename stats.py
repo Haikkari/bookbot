@@ -27,3 +27,24 @@ def count_characters(filepath):
             else:
                 character_dict[character] = 1
         return character_dict
+    
+def sorted_character_list(dictionary):
+    """
+    Goes trough the character dictionary and returns an ordered list of dictionaries 
+    with characters and count values.
+    
+    :param dictionary: Dictionary with characters as keys and counts as values.
+    :return: List of dictionaries of characters with count values.
+    """
+    def sort_on(dict):
+        return dict["num"]
+
+    char_list = []
+    for char in dictionary:
+        dict = {}
+        dict["char"] = char
+        dict["num"] = dictionary[char]
+        char_list.append(dict)
+
+    char_list.sort(reverse=True, key=sort_on)
+    return char_list
