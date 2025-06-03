@@ -7,10 +7,17 @@ def get_book_text(filepath):
     """
     with open(filepath) as file:
         return file.read()
+
+def count_words(filepath):
+    with open(filepath) as file:
+        book = file.read()
+        words = book.split()
+        return len(words)
     
 def main():
     # bookpath is a relative path to book and program prints the book on terminal
     bookpath = "books/frankenstein.txt"
-    print(get_book_text(bookpath))
+    # print(get_book_text(bookpath))
+    print(f"{count_words(bookpath)} words found in the document")
 
 main()
