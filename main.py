@@ -1,3 +1,5 @@
+from stats import count_words
+
 def get_book_text(filepath):
     """
     Reads the content of a book from a file and returns it as a string.
@@ -7,12 +9,6 @@ def get_book_text(filepath):
     """
     with open(filepath) as file:
         return file.read()
-
-def count_words(filepath):
-    with open(filepath) as file:
-        book = file.read()
-        words = book.split()
-        return len(words)
     
 def main():
     # bookpath is a relative path to book and program prints the book on terminal
