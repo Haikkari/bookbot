@@ -1,4 +1,4 @@
-from stats import count_words
+from stats import count_words, count_characters
 
 def get_book_text(filepath):
     """
@@ -14,6 +14,7 @@ def main():
     # bookpath is a relative path to book and program prints the book on terminal
     bookpath = "books/frankenstein.txt"
     # print(get_book_text(bookpath))
-    print(f"{count_words(bookpath)} words found in the document")
+    # print(f"{count_words(bookpath)} words found in the document")
+    print(count_characters(bookpath))
 
 main()
